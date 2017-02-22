@@ -49,7 +49,8 @@ for (continent in unique(gap$continent)) {
 unique(gap$country)
 for (country in unique(gap$country)) {
   data <- gap[gap$country == country,]
+  data$gdp <- data$pop * data$gdpPercap / 1e9
   print(country)
-  print(mean(data$gdpPercap * data$pop/1000000))
+  print(mean(data$gdp))
 }
 
